@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>GlassOS - Frosted Glass Mobile UI</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#9f8de0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+
+  <!-- ================= 3D Ambient Fluid Background ================= -->
+  <div class="ambient-background">
+    <div class="glow-orb-1"></div>
+    <div class="glow-orb-2"></div>
+    <div class="torus-mesh"></div>
+    <div class="torus-inner"></div>
+  </div>
+
+  <div class="device-viewport">
+
+    <!-- ================= Top Status Bar ================= -->
+    <header class="status-bar">
+      <div class="status-left" id="status-clock">18:15</div>
+      <div class="status-notch-pill" id="status-notch" title="Tap or Swipe down for Control Center"></div>
+      <div class="status-right">
+        <span>5G</span>
+        <span>📶</span>
+        <span>􀙇</span>
+        <div class="battery-pill">
+          <div class="battery-level"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= Viewport Contents ================= -->
+    <main class="viewport-content">
+
+      <!-- ================= 1. HOME SCREEN (The Reference Twin Cards) ================= -->
+      <section id="view-home" class="screen-view active">
+        <div class="home-dual-container">
+
+          <!-- Left Card: Glass Music Player (From Reference Image) -->
+          <div class="glass-panel glass-player-card">
+            
+            <div class="card-top-nav">
+              <button class="glass-pill-btn nav-icon-btn" title="Back">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+              </button>
+              <span class="card-title-text">Listen now</span>
+              <button class="glass-pill-btn nav-icon-btn" title="Options">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="7" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="17" r="2"/></svg>
+              </button>
+            </div>
+
+            <!-- Inset Beveled Album Art Frame -->
+            <div class="album-art-frame">
+              <div class="album-image">
+                <svg class="album-art-silhouette" viewBox="0 0 200 200" fill="none">
+                  <circle cx="100" cy="80" r="38" fill="rgba(255,255,255,0.7)" />
+                  <path d="M40 180 C40 130 160 130 160 180 Z" fill="rgba(255,255,255,0.55)" />
+                  <path d="M50 70 Q 70 30 110 50 Q 150 70 140 110" stroke="#00f5d4" stroke-width="8" stroke-linecap="round" />
+                  <circle cx="140" cy="130" r="14" fill="#fee440" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Track Metadata -->
+            <div class="track-meta">
+              <h2 class="track-title" id="track-title">Psychedelic</h2>
+              <p class="track-artist" id="track-artist">D3m0n X Diablo</p>
+            </div>
+
+            <!-- Progress Slider -->
+            <div class="track-progress-container">
+              <div class="track-slider" id="track-slider">
+                <div class="slider-fill" id="track-slider-fill"></div>
+                <div class="slider-thumb" id="track-slider-thumb"></div>
+              </div>
+              <span class="track-time-remaining" id="track-time-remaining">-3:06</span>
+            </div>
+
+            <!-- Playback Controls -->
+            <div class="playback-controls">
+              <button class="glass-pill-btn ctrl-btn" id="prev-btn" title="Previous">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2.5"/></svg>
+              </button>
+
+              <button class="ctrl-btn-primary" id="play-btn-main" title="Play / Pause">
+                ❚❚
+              </button>
+
+              <button class="glass-pill-btn ctrl-btn" id="next-btn" title="Next">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2.5"/></svg>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Right Card: Collections & Recommended (From Reference Image) -->
+          <div class="glass-panel glass-library-card">
+
+            <div class="card-top-nav">
+              <button class="glass-pill-btn nav-icon-btn" title="Search">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </button>
+              <button class="glass-pill-btn nav-icon-btn" title="Grid View">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg>
+              </button>
+            </div>
+
+            <!-- Collections Section -->
+            <h3 class="section-label">Collections</h3>
+            <div class="collections-row">
+              <div class="collection-chip">
+                <div class="collection-art">
+                  <div class="collection-img" style="background: linear-gradient(135deg, #f72585, #7209b7);"></div>
+                </div>
+                <span class="collection-title">Chillout</span>
+                <span class="collection-sub">206 songs</span>
+              </div>
+
+              <div class="collection-chip">
+                <div class="collection-art">
+                  <div class="collection-img" style="background: linear-gradient(135deg, #3a0ca3, #4361ee);"></div>
+                </div>
+                <span class="collection-title">Work</span>
+                <span class="collection-sub">137 songs</span>
+              </div>
+
+              <div class="collection-chip">
+                <div class="collection-art">
+                  <div class="collection-img" style="background: linear-gradient(135deg, #4cc9f0, #4895ef);"></div>
+                </div>
+                <span class="collection-title">Special</span>
+                <span class="collection-sub">78 songs</span>
+              </div>
+            </div>
+
+            <!-- Recommended Songs List -->
+            <h3 class="section-label">Recommended</h3>
+            <div class="song-list">
+
+              <div class="song-row">
+                <div class="song-info">
+                  <span class="song-name">Shape of You</span>
+                  <span class="song-by">Ed Sheeran</span>
+                </div>
+                <button class="glass-pill-btn song-play-mini">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                </button>
+              </div>
+
+              <div class="song-row">
+                <div class="song-info">
+                  <span class="song-name">Jessica feat. Bado</span>
+                  <span class="song-by">Borys LBD</span>
+                </div>
+                <button class="glass-pill-btn song-play-mini">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                </button>
+              </div>
+
+              <div class="song-row">
+                <div class="song-info">
+                  <span class="song-name">Mi Cama</span>
+                  <span class="song-by">Karol G</span>
+                </div>
+                <button class="glass-pill-btn song-play-mini">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                </button>
+              </div>
+
+              <div class="song-row">
+                <div class="song-info">
+                  <span class="song-name">Ona by tak chciala</span>
+                  <span class="song-by">Ronnie Ferrari</span>
+                </div>
+                <button class="glass-pill-btn song-play-mini">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                </button>
+              </div>
+
+            </div>
+
+            <!-- Floating Mini Player at Bottom of Library Card -->
+            <div class="floating-mini-player">
+              <div class="mini-meta">
+                <button class="mini-play-icon" id="mini-play-btn">❚❚</button>
+                <div class="song-info">
+                  <span class="song-name" id="mini-title">Secrets</span>
+                  <span class="song-by" id="mini-sub">Tiesto & KSHMR</span>
+                </div>
+              </div>
+              <div class="mini-controls">
+                <button class="glass-pill-btn mini-skip-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2"/></svg>
+                </button>
+                <button class="glass-pill-btn mini-skip-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2"/></svg>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= 2. CONTROL CENTER (Quick Toggles & Sliders) ================= -->
+      <section id="view-controlcenter" class="screen-view">
+        <div class="glass-panel cc-container" style="padding: 24px;">
+
+          <h2 style="font-size: 22px; font-weight: 800; color: #221245; margin-bottom: 6px;">Control Center</h2>
+          <p style="font-size: 13px; color: #64548c; margin-bottom: 14px;">Instant Frosted Glass System Controls</p>
+
+          <!-- Quick Toggle Grid -->
+          <div class="cc-grid-tiles">
+            
+            <div class="glass-panel cc-tile active" data-toggle="wifi">
+              <div class="cc-tile-icon">📶</div>
+              <div class="cc-tile-info">
+                <span class="cc-tile-title">Wi-Fi</span>
+                <span class="cc-tile-sub">GlassNet 5G</span>
+              </div>
+            </div>
+
+            <div class="glass-panel cc-tile active" data-toggle="bluetooth">
+              <div class="cc-tile-icon">🎧</div>
+              <div class="cc-tile-info">
+                <span class="cc-tile-title">Bluetooth</span>
+                <span class="cc-tile-sub">AirPods Connected</span>
+              </div>
+            </div>
+
+            <div class="glass-panel cc-tile active" data-toggle="data">
+              <div class="cc-tile-icon">🌐</div>
+              <div class="cc-tile-info">
+                <span class="cc-tile-title">Mobile Data</span>
+                <span class="cc-tile-sub">5G High Speed</span>
+              </div>
+            </div>
+
+            <div class="glass-panel cc-tile" data-toggle="flashlight">
+              <div class="cc-tile-icon">🔦</div>
+              <div class="cc-tile-info">
+                <span class="cc-tile-title">Torch</span>
+                <span class="cc-tile-sub">Flashlight</span>
+              </div>
+            </div>
+
+            <div class="glass-panel cc-tile" data-toggle="airplane">
+              <div class="cc-tile-icon">✈️</div>
+              <div class="cc-tile-info">
+                <span class="cc-tile-title">Airplane</span>
+                <span class="cc-tile-sub">Off</span>
+              </div>
+            </div>
+
+            <div class="glass-panel cc-tile active" data-toggle="rotate">
+              <div class="cc-tile-icon">🔄</div>
+              <div class="cc-tile-info">
+                <span class="cc-tile-title">Auto-Rotate</span>
+                <span class="cc-tile-sub">On</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Dual Sliders: Brightness & Volume -->
+          <div class="cc-sliders-row">
+
+            <div class="glass-panel cc-slider-card" id="cc-brightness-card">
+              <div class="cc-slider-level" id="cc-bri-level" style="height: 80%;"></div>
+              <div class="cc-slider-content">
+                <span class="cc-slider-icon">☀️</span>
+                <span class="cc-slider-val" id="cc-bri-val">80%</span>
+                <span style="font-size: 11px; color: #534277;">Brightness</span>
+              </div>
+            </div>
+
+            <div class="glass-panel cc-slider-card" id="cc-volume-card">
+              <div class="cc-slider-level" id="cc-vol-level" style="height: 75%;"></div>
+              <div class="cc-slider-content">
+                <span class="cc-slider-icon">🔊</span>
+                <span class="cc-slider-val" id="cc-vol-val">75%</span>
+                <span style="font-size: 11px; color: #534277;">Volume</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= 3. APP DRAWER ================= -->
+      <section id="view-appdrawer" class="screen-view">
+        <div class="glass-panel app-search-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a3b75" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" class="search-input" id="app-search-input" placeholder="Search apps & games..." autocomplete="off">
+        </div>
+
+        <div class="app-grid" id="app-grid">
+          <!-- Populated dynamically by app.js from Android System or Default Suite -->
+        </div>
+      </section>
+
+      <!-- ================= 4. LOCK SCREEN ================= -->
+      <section id="view-lockscreen" class="screen-view">
+        <div class="lock-clock-section">
+          <div class="lock-time" id="lock-clock">18:15</div>
+          <div class="lock-date" id="lock-date">Thursday, October 8</div>
+        </div>
+
+        <!-- Lockscreen Music Pill -->
+        <div class="glass-panel" style="width: 100%; max-width: 360px; padding: 18px 20px; display: flex; align-items: center; gap: 16px;">
+          <div style="width: 52px; height: 52px; border-radius: 18px; background: linear-gradient(135deg, #f72585, #3a0ca3); display: flex; align-items: center; justify-content: center; font-size: 24px;">🎵</div>
+          <div style="flex: 1;">
+            <div style="font-size: 16px; font-weight: 700; color: #221345;">Psychedelic</div>
+            <div style="font-size: 12px; color: #695a91;">D3m0n X Diablo • Playing</div>
+          </div>
+          <button class="glass-pill-btn" style="width: 40px; height: 40px; color: #ff4838; font-size: 14px;">❚❚</button>
+        </div>
+
+        <!-- Slide to Unlock Track -->
+        <div class="glass-panel lock-unlock-track" id="unlock-track">
+          <div class="unlock-thumb" id="unlock-thumb">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </div>
+          <div class="unlock-hint-text">Slide right to unlock ➔</div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ================= 5. VOLUME PANEL POPUP OVERLAY ================= -->
+    <div class="glass-panel volume-popup-card" id="volume-popup">
+      <span style="font-size: 20px; color: #ff5444;">🔊</span>
+      <div class="vol-track">
+        <div class="vol-fill" id="vol-fill"></div>
+      </div>
+      <span class="vol-percent" id="vol-percent">75%</span>
+    </div>
+
+    <!-- ================= Bottom Mode Switcher Dock ================= -->
+    <nav class="bottom-mode-dock">
+      <button class="dock-tab-btn active" data-view="home">
+        <span>🏠</span>
+        <span>Home</span>
+      </button>
+      <button class="dock-tab-btn" data-view="controlcenter">
+        <span>⚡</span>
+        <span>Controls</span>
+      </button>
+      <button class="dock-tab-btn" data-view="appdrawer">
+        <span>📱</span>
+        <span>Apps</span>
+      </button>
+      <button class="dock-tab-btn" data-view="lockscreen">
+        <span>🔒</span>
+        <span>Lock</span>
+      </button>
+      <button class="dock-tab-btn" data-view="volume">
+        <span>🔊</span>
+        <span>Volume</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
