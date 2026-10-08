@@ -1,0 +1,7 @@
+<resources>
+    <color name="primary">#7B61FF</color>
+    <color name="primary_variant">#5C45D3</color>
+    <color name="background">#121124</color>
+    <color name="surface_glass">#33FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+</resources>
